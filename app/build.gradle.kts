@@ -42,6 +42,5 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-   // implementation("com.github.Aumaidkh:EasyPermissionHandler:1.0.6")
-    implementation(project(":EasyPermissions"))
+    implementation("com.github.Aumaidkh:EasyPermissionHandler:1.0.8")
 }
