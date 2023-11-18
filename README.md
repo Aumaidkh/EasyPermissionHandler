@@ -1,7 +1,7 @@
 # EasyPermissions Library
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Latest Version](https://img.shields.io/badge/Latest%20Version-1.0-green)](https://github.com/your_username/your_repository/releases/tag/1.0.8)
+[![Latest Version](https://img.shields.io/badge/Latest%20Version-1.0.8-green)](https://github.com/Aumaidkh/EasyPermissionHandler/releases/tag/1.0.8)
 
 EasyPermissions is an Android library designed to simplify permission handling based on best practices outlined in the [Android Developer's documentation](https://developer.android.com/training/permissions/requesting).
 
@@ -84,6 +84,40 @@ User had denied the permission permanently
 ---
 The library uses the primary color from the theme that has been applied to the activity/fragment for the buttons and icon to be displayed.
 ## Usage Example
+
+```kotlin
+// Example usage in a Fragment
+class ExampleFragment : Fragment(){
+
+    /**
+     *Step 1:  Get instance of permission handler
+     * */
+   private val permissionHandler by getPermissionHandler()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_example,container,false)
+
+
+        //Step 3: Request permission
+        permissionHandler.requestPermissionIfNeeded(
+            Manifest.permission.BLUETOOTH,
+            BluetoothPermissionRationaleContentProvider()
+        )
+        return view
+    }
+
+    /**
+     * Step 2: Create Rationale also
+     * @see [MainActivity.NotificationRationaleContentProvider]*/
+    class BluetoothPermissionRationaleContentProvider: PermissionRationaleContentProvider{
+        override fun getPermissionRationaleContent(isPermanentlyDeclined: Boolean): RationaleContent {
+            return RationaleContent(
+                title = "Allow the app to access your Bluetooth",
+                message = "This app needs bluetooth access to connect you to the other users"
+            )
+        }
+    }
+}```
 
 ```kotlin
 // Example usage in an activity
