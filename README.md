@@ -90,7 +90,7 @@ Involves same four steps:
   ```xml
   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-  	<uses-permission android:name="android.permission.BLUETOOTH"/>
+  	<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
   	<application
   		......
   		......
@@ -104,11 +104,13 @@ Involves same four steps:
   ```
 - Create a Permission Rationale Content Provider
   ```kotlin
-  class BluetoothPermissionRationaleContentProvider: PermissionRationaleContentProvider{
+ 	class NotificationRationaleContentProvider: PermissionRationaleContentProvider{
         override fun getPermissionRationaleContent(isPermanentlyDeclined: Boolean): RationaleContent {
             return RationaleContent(
-                title = "Allow the app to access your Bluetooth",
-                message = "This app needs bluetooth access to connect you to the other users"
+                title = "Allow this app to send you Notifications",
+                message = if (isPermanentlyDeclined) "Seems like you have denied the Notification permissions permanently. Please grant the permission from the Settings" else "This app requires notification 			access to keep you updated.",
+                positiveButtonText = if (isPermanentlyDeclined) "Go to settings" else "Grant",
+                negativeButtonText = if (isPermanentlyDeclined) "No thanks" else "Deny"
             )
         }
     }
@@ -116,7 +118,7 @@ Involves same four steps:
 - Request permssions by making user of Permission Handler inside Activity/Fragment
   ```kotlin
   permissionHandler.requestPermissionIfNeeded(
-            Manifest.permission.BLUETOOTH,
+            Manifest.permission.POST_NOTIFICATIONS,
             BluetoothPermissionRationaleContentProvider()
         )
   ```
@@ -138,12 +140,6 @@ class MainActivity : AppCompatActivity() {
             permission = Manifest.permission.POST_NOTIFICATIONS,
             rationaleContent = NotificationRationaleContentProvider()
         )
-
-        findViewById<Button>(R.id.btnExample).setOnClickListener {
-            Intent(this,MainActivity2::class.java).also {
-                startActivity(it)
-            }
-        }
 
     }
 
