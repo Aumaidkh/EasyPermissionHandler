@@ -30,7 +30,7 @@ In your build.gradle (Module) add the following snippet.
 ```groovy
 dependencies {
 	        // other dependencies ...
-	        implementation 'com.github.Aumaidkh:EasyPermissionHandler:Tag'
+	        implementation 'com.github.Aumaidkh:EasyPermissionHandler:$latest_version'
 	}
 ```
 
