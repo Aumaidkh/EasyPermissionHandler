@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/dialog_background"
+    android:padding="24dp"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/phone_icon"
+        app:tint="@color/mtrl_text_btn_text_color_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:textSize="21sp"
+        android:textColor="@color/textColor"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:text="Allow Frontier Plus to send you notifications"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcon" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/textColor"
+        android:layout_height="wrap_content"
+        android:text="Seems like you have denied the permissions permanently. Do you want to grant from settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+        android:layout_margin="16dp"
+        android:text="Grant"
+        app:cornerRadius="100dp"
+        style="@style/Widget.MaterialComponents.Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/positiveButton"
+        android:layout_width="0dp"
+        android:layout_height="55dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        app:layout_constraintTop_toBottomOf="@id/positiveButton"
+        android:layout_margin="16dp"
+        android:text="Deny"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/negativeButton"
+        android:layout_width="0dp"
+        android:layout_height="55dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
