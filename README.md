@@ -73,6 +73,8 @@ Involves same four steps:
             BluetoothPermissionRationaleContentProvider()
         )
   ```
+  ---
+## Example Usages
 #### Usage in an Activity
 
 ```kotlin
