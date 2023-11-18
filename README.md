@@ -11,6 +11,30 @@ EasyPermissions is an Android library designed to simplify permission handling b
 
 This library provides simplified permission request handling using a delegate pattern and encapsulates rationale content generation.
 
+### Setup
+
+------------
+
+
+In your build.gradle (Module) or settings.gradle add the below snippet.
+```groovy
+dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+In your build.gradle (Module) add the following snippet.
+```groovy
+dependencies {
+	        // other dependencies ...
+	        implementation 'com.github.Aumaidkh:EasyPermissionHandler:Tag'
+	}
+```
+
+
 ### Key Classes
 
 #### RationaleContent
@@ -55,3 +79,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+### Previews
+
+------------
+Permission has not been requested yet.
+- Day Mode
+![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/f01ca722-4b56-4d32-812b-ad166b81e1c7)
+
+- Night Mode
+
+User has once denied the permission.
+- Day Mode
+- Night Mode
+
+User had denied the permission permanently
+- Day Mode
+- Night Mode
+
