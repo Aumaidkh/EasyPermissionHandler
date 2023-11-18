@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="textColor">#000000</color>
+    <color name="messageTextColor">#CC000000</color>
     <color name="primaryColor">#5E35B1</color>
 </resources>

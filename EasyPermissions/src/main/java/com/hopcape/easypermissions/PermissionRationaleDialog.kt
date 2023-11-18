@@ -8,6 +8,14 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 
+/**
+ * Creates an returns a [Dialog] which is to
+ * be shown to the user while asking for permissions
+ * @param context
+ * @param onPositiveClick - invoked when positive button is clicked
+ * @param onNegativeClick - invoked when negative button is clicked
+ * @param rationaleContent - content to be displayed onto the dialog
+ * @see[RationaleContent] for more info*/
 internal fun getPermissionDialog(context: Context, onPositiveClick: () -> Unit, onNegativeClick: () -> Unit,
                         rationaleContent: RationaleContent): Dialog {
 
