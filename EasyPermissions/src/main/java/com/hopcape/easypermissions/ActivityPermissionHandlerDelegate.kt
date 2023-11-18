@@ -5,11 +5,12 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 
+
 /**
  * Used to get the reference to the
  * [IPermissionHandler] by using 'by' keyword
  * */
-class PermissionHandlerDelegate(
+class ActivityPermissionHandlerDelegate(
     private val activity: ComponentActivity
 ): ReadOnlyProperty<ComponentActivity,IPermissionHandler>{
 
@@ -29,4 +30,4 @@ class PermissionHandlerDelegate(
  * [PermissionsSessionDelegate] using by keyword in an activity
  * val handler by getPermissionHandler()
  * */
-fun ComponentActivity.getPermissionHandler() = PermissionHandlerDelegate(activity = this)
+fun ComponentActivity.getPermissionHandler() = ActivityPermissionHandlerDelegate(activity = this)
