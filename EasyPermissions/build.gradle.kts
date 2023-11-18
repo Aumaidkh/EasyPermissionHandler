@@ -1,3 +1,17 @@
+//===============================
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.1.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
+    }
+}
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -19,14 +33,15 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            consumerProguardFiles("consumer-rules.pro")
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
     sourceSets {
         getByName("main") {
@@ -37,6 +52,18 @@ android {
     }
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -45,17 +72,10 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
 
-// Assuming you're working within the `plugins` and other configurations
 
 tasks.register("publishing") {
     afterEvaluate {
         publishing {
-            repositories {
-                maven {
-                    name = "jitpack"
-                    url = uri("https://jitpack.io")
-                }
-            }
             publications {
                 create<MavenPublication>("release") {
                     from(components["release"])
@@ -63,7 +83,14 @@ tasks.register("publishing") {
                     groupId = "com.github.Aumaidkh"
                     artifactId = "easy-permission"
                     version = "1.0"
+                    pom {
+                        description.set("First Release")
+                    }
                 }
+            }
+
+            repositories {
+                mavenLocal()
             }
         }
     }
