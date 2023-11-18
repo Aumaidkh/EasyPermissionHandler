@@ -84,9 +84,6 @@ User had denied the permission permanently
 ---
 The library uses the primary color from the theme that has been applied to the activity/fragment for the buttons and icon to be displayed.
 ## Usage Example
-
-
-##### Usage
 ----
 Involves same four steps:
 - Add the permission to the Manifest
@@ -101,7 +98,7 @@ Involves same four steps:
   	</application>
   </manifest>
   ```
-- Get reference to the Permission Handler
+- Get reference to the Permission Handler inside Activity/Fragment.
   ```kotlin
   private val permissionHandler by getPermissionHandler()
   ```
@@ -116,14 +113,14 @@ Involves same four steps:
         }
     }
   ```
-- Request permssions by making user of Permission Handler
+- Request permssions by making user of Permission Handler inside Activity/Fragment
   ```kotlin
   permissionHandler.requestPermissionIfNeeded(
             Manifest.permission.BLUETOOTH,
             BluetoothPermissionRationaleContentProvider()
         )
   ```
-##### Usage in an Activity
+#### Usage in an Activity
 
 ```kotlin
 class MainActivity : AppCompatActivity() {
@@ -168,7 +165,7 @@ class MainActivity : AppCompatActivity() {
 
 ---
 
-##### Usage in a Fragment
+#### Usage in a Fragment
 
 ```kotlin
 // Example usage in a Fragment
