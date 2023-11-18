@@ -50,6 +50,12 @@ dependencies {
 tasks.register("publishing") {
     afterEvaluate {
         publishing {
+            repositories {
+                maven {
+                    name = "jitpack"
+                    url = uri("https://jitpack.io")
+                }
+            }
             publications {
                 create<MavenPublication>("release") {
                     from(components["release"])
