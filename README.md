@@ -58,7 +58,7 @@ dependencies {
 
 ------------
 Permission has not been requested yet.
-- Day Mode
+###### Day Mode
 ![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/5fa0d88b-febf-4e20-b9cb-1a8c328beb3b)
 
 
