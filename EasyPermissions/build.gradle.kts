@@ -82,7 +82,7 @@ tasks.register("publishing") {
 
                     groupId = "com.github.Aumaidkh"
                     artifactId = "easy-permissions"
-                    version = "1.0.3"
+                    version = "1.0.4"
                     pom {
                         description.set("First Release")
                     }
