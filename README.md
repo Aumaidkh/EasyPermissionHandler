@@ -54,6 +54,23 @@ dependencies {
 
 ---
 
+### Previews
+
+------------
+Permission has not been requested yet.
+- Day Mode
+![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/f01ca722-4b56-4d32-812b-ad166b81e1c7)
+
+- Night Mode
+
+User has once denied the permission.
+- Day Mode
+- Night Mode
+
+User had denied the permission permanently
+- Day Mode
+- Night Mode
+
 ## Usage Example
 
 ```kotlin
@@ -79,22 +96,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-```kotlin
-
-### Previews
-
-------------
-Permission has not been requested yet.
-- Day Mode
-![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/f01ca722-4b56-4d32-812b-ad166b81e1c7)
-
-- Night Mode
-
-User has once denied the permission.
-- Day Mode
-- Night Mode
-
-User had denied the permission permanently
-- Day Mode
-- Night Mode
 
