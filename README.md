@@ -32,8 +32,9 @@ dependencies {
 	        // other dependencies ...
 	        implementation 'com.github.Aumaidkh:EasyPermissionHandler:Tag'
 	}
+```
 
-## Usage Example
+## Usage
 ----
 Involves same four steps:
 - Add the permission to the Manifest
