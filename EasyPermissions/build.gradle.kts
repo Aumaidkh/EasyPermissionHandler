@@ -81,8 +81,8 @@ tasks.register("publishing") {
                     from(components["release"])
 
                     groupId = "com.github.Aumaidkh"
-                    artifactId = "easy-permission"
-                    version = "1.0"
+                    artifactId = "easy-permissions"
+                    version = "1.0.2"
                     pom {
                         description.set("First Release")
                     }
