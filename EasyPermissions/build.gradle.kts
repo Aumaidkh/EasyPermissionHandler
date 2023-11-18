@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
 android {
@@ -45,3 +46,16 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.github.aumaidkh"
+                artifactId = "easypermissions"
+                version = "1.0"
+            }
+        }
+    }
+}
