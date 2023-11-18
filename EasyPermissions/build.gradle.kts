@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
 android {
@@ -42,4 +43,22 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+}
+
+// Assuming you're working within the `plugins` and other configurations
+
+tasks.register("publishing") {
+    afterEvaluate {
+        publishing {
+            publications {
+                create<MavenPublication>("release") {
+                    from(components["release"])
+
+                    groupId = "com.github.Aumaidkh"
+                    artifactId = "easy-permission"
+                    version = "1.0"
+                }
+            }
+        }
+    }
 }
