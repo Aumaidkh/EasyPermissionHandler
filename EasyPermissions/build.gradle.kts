@@ -1,21 +1,6 @@
-//===============================
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        mavenLocal()
-    }
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:7.1.3")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20")
-    }
-}
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("maven-publish")
 }
 
 android {
@@ -52,18 +37,6 @@ android {
     }
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
-
 dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -72,26 +45,3 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }
 
-
-tasks.register("publishing") {
-    afterEvaluate {
-        publishing {
-            publications {
-                create<MavenPublication>("release") {
-                    from(components["release"])
-
-                    groupId = "com.github.Aumaidkh"
-                    artifactId = "easy-permissions"
-                    version = "1.0.4"
-                    pom {
-                        description.set("First Release")
-                    }
-                }
-            }
-
-            repositories {
-                mavenLocal()
-            }
-        }
-    }
-}
