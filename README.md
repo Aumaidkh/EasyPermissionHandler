@@ -85,6 +85,91 @@ User had denied the permission permanently
 The library uses the primary color from the theme that has been applied to the activity/fragment for the buttons and icon to be displayed.
 ## Usage Example
 
+
+##### Usage
+----
+Involves same four steps:
+- Add the permission to the Manifest
+  ```xml
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+  	<uses-permission android:name="android.permission.BLUETOOTH"/>
+  	<application
+  		......
+  		......
+  		>
+  	</application>
+  </manifest>
+  ```
+- Get reference to the Permission Handler
+  ```kotlin
+  private val permissionHandler by getPermissionHandler()
+  ```
+- Create a Permission Rationale Content Provider
+  ```kotlin
+  class BluetoothPermissionRationaleContentProvider: PermissionRationaleContentProvider{
+        override fun getPermissionRationaleContent(isPermanentlyDeclined: Boolean): RationaleContent {
+            return RationaleContent(
+                title = "Allow the app to access your Bluetooth",
+                message = "This app needs bluetooth access to connect you to the other users"
+            )
+        }
+    }
+  ```
+- Request permssions by making user of Permission Handler
+  ```kotlin
+  permissionHandler.requestPermissionIfNeeded(
+            Manifest.permission.BLUETOOTH,
+            BluetoothPermissionRationaleContentProvider()
+        )
+  ```
+##### Usage in an Activity
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    /**
+     *Step 1:  Get instance of permission handler
+     * */
+    private val permissionHandler by getPermissionHandler()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Step 3: Ask Permissions
+        permissionHandler.requestPermissionIfNeeded(
+            permission = Manifest.permission.POST_NOTIFICATIONS,
+            rationaleContent = NotificationRationaleContentProvider()
+        )
+
+        findViewById<Button>(R.id.btnExample).setOnClickListener {
+            Intent(this,MainActivity2::class.java).also {
+                startActivity(it)
+            }
+        }
+
+    }
+
+    /**
+     * Step 2: Create Rationale*/
+    class NotificationRationaleContentProvider: PermissionRationaleContentProvider{
+        override fun getPermissionRationaleContent(isPermanentlyDeclined: Boolean): RationaleContent {
+            return RationaleContent(
+                title = "Allow this app to send you Notifications",
+                message = if (isPermanentlyDeclined) "Seems like you have denied the Notification permissions permanently. Please grant the permission from the Settings" else "This app requires notification access to keep you updated.",
+                positiveButtonText = if (isPermanentlyDeclined) "Go to settings" else "Grant",
+                negativeButtonText = if (isPermanentlyDeclined) "No thanks" else "Deny"
+            )
+        }
+    }
+
+}
+```
+
+---
+
+##### Usage in a Fragment
+
 ```kotlin
 // Example usage in a Fragment
 class ExampleFragment : Fragment(){
@@ -115,30 +200,6 @@ class ExampleFragment : Fragment(){
                 title = "Allow the app to access your Bluetooth",
                 message = "This app needs bluetooth access to connect you to the other users"
             )
-        }
-    }
-}```
-
-```kotlin
-// Example usage in an activity
-class MainActivity : AppCompatActivity() {
-
-    private val permission by getPermissionHandler()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        permission.requestPermissionIfNeeded(
-            permission = Manifest.permission.POST_NOTIFICATIONS,
-            rationaleContent = NotificationRationaleContentProvider()
-        )
-    }
-
-    // Class providing the permission rationale content
-    class NotificationRationaleContentProvider : PermissionRationaleContentProvider {
-        override fun getPermissionRationaleContent(isPermanentlyDeclined: Boolean): RationaleContent {
-            // Return RationaleContent based on the permission status
         }
     }
 }
