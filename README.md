@@ -175,7 +175,7 @@ class ExampleFragment : Fragment(){
 Permission has not been requested yet.
 |  Day (System Dialog ) | Night (System Dialog)  |
 | ------------ | ------------ |
-|  ![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/5fa0d88b-febf-4e20-b9cb-1a8c328beb3b) |  ![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/5fa0d88b-febf-4e20-b9cb-1a8c328beb3b) |
+|  ![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/5fa0d88b-febf-4e20-b9cb-1a8c328beb3b) | ![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/6c863ca1-655c-4e8b-8c13-7b35941b8beb) |
 
 ------------
 
