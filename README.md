@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+```kotlin
 
 ### Previews
 
