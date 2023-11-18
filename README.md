@@ -66,10 +66,10 @@ Permission has not been requested yet.
 ![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/6c863ca1-655c-4e8b-8c13-7b35941b8beb)
 
 User has once denied the permission.
-###### Day Mode
+###### Day Mode ( System Dialog )
 ![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/260d8b90-fd76-47a2-b851-70ef0270e0ec)
 
-###### Night Mode
+###### Night Mode ( System Dialog )
 ![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/ccf8925e-e872-4be4-b145-a34cc30e723e)
 
 
