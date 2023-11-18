@@ -62,16 +62,27 @@ Permission has not been requested yet.
 ![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/5fa0d88b-febf-4e20-b9cb-1a8c328beb3b)
 
 
-- Night Mode
+###### Night Mode
+![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/6c863ca1-655c-4e8b-8c13-7b35941b8beb)
 
 User has once denied the permission.
-- Day Mode
-- Night Mode
+###### Day Mode
+![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/260d8b90-fd76-47a2-b851-70ef0270e0ec)
+
+###### Night Mode
+![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/ccf8925e-e872-4be4-b145-a34cc30e723e)
+
 
 User had denied the permission permanently
-- Day Mode
-- Night Mode
+###### Day Mode
+![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/ed4e5f2c-8842-4926-8bd3-53822c92471e)
 
+###### Night Mode
+![image](https://github.com/Aumaidkh/EasyPermissionHandler/assets/52782821/1de6b500-f160-4cd0-910b-c47149899347)
+
+### Theming
+---
+The library uses the primary color from the theme that has been applied to the activity/fragment for the buttons and icon to be displayed.
 ## Usage Example
 
 ```kotlin
